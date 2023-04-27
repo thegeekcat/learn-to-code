@@ -114,7 +114,7 @@ plt.plot(x, np.sin(x))
 
     [<matplotlib.lines.Line2D at 0x7ff058368eb0>]
 
-![Python-Matplotlib01-Basics-01](../Python-Matplotlib01-Basics-img01.png)
+![Python-Matplotlib01-Basics-01](./Python-Matplotlib01-Basics-img01.png)
 
 
 
