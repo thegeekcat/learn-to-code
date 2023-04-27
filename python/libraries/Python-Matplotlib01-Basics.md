@@ -114,7 +114,7 @@ plt.plot(x, np.sin(x))
 
     [<matplotlib.lines.Line2D at 0x7ff058368eb0>]
 
-![Python-Matplotlib01-Basics-01](./Python-Matplotlib01-Basics-img01.png) 
+![Python-Matplotlib01-Basics-01](./assets/Python-Matplotlib01-Basics-img01.png) 
 
 
 
@@ -129,7 +129,7 @@ plt.plot(x, np.cos(x))
 
     [<matplotlib.lines.Line2D at 0x7ff058272130>]
 
-![Python-Matplotlib01-Basics-02]({{site.url}}/assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img02.png)
+![Python-Matplotlib01-Basics-02](./assets/Python-Matplotlib01-Basics-img02.png)
 
 
 
@@ -144,7 +144,7 @@ plt.plot(np.sin(x), np.cos(x))
 
     [<matplotlib.lines.Line2D at 0x7ff0581dafa0>]
 
-![Python-Matplotlib01-Basics-03]({{site.url}}/assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img03.png)
+![Python-Matplotlib01-Basics-03](./assets/Python-Matplotlib01-Basics-img03.png)
 
 
 
@@ -167,7 +167,7 @@ plt.plot(x, np.cos(x-1), '-.')  # dash-dotline 표현
 fig.savefig('my_figure.png') # 그래프 저장 시 png 포맷이 선명도 제일 좋음
 ```
 
-![Python-Matplotlib01-Basics-04]({{site.url}}/assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img04.png)    
+![Python-Matplotlib01-Basics-04](./assets/Python-Matplotlib01-Basics-img04.png)    
 
 
 
@@ -177,7 +177,7 @@ from IPython.display import Image
 Image('my_figure.png')
 ```
 
-![Python-Matplotlib01-Basics-05]({{site.url}}/assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img05.png)
+![Python-Matplotlib01-Basics-05](./assets/Python-Matplotlib01-Basics-img05.png)
 
 
 
@@ -238,7 +238,7 @@ plt.subplot(2, 1, 2)
 
     <Axes: >
 
-![Python-Matplotlib01-Basics-06](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img06.png)
+![Python-Matplotlib01-Basics-06](./assets/Python-Matplotlib01-Basics-img06.png)
 
 
 
@@ -254,7 +254,7 @@ plt.subplot(3, 3, 9)
 
     <Axes: >
 
-![Python-Matplotlib01-Basics-07](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img07.png)
+![Python-Matplotlib01-Basics-07](./assets/Python-Matplotlib01-Basics-img07.png)
 
 
 
@@ -271,10 +271,10 @@ plt.plot(x, np.cos(x))
 
     [<matplotlib.lines.Line2D at 0x7ff038ea94f0>]
 
-![Python-Matplotlib01-Basics-08](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img08.png)
+![Python-Matplotlib01-Basics-08](./assets/Python-Matplotlib01-Basics-img08.png)
 
 
-  
+
 
 
 ## 2.4. Line Colors
@@ -301,7 +301,7 @@ plt.plot(x, np.sin(x-5), color='chartreuse')
 
     [<matplotlib.lines.Line2D at 0x7ff038dc6910>]
 
-![Python-Matplotlib01-Basics-09](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img09.png)
+![Python-Matplotlib01-Basics-09](./assets/Python-Matplotlib01-Basics-img09.png)
 
 
 
@@ -324,7 +324,7 @@ plt.plot(x, x+3, linestyle='dotted')   # dot line
 
     [<matplotlib.lines.Line2D at 0x7ff038db5eb0>]
 
-![Python-Matplotlib01-Basics-10](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img10.png)
+![Python-Matplotlib01-Basics-10](./assets/Python-Matplotlib01-Basics-img10.png)
 
 
 
@@ -344,7 +344,7 @@ plt.plot(x, x+3, linestyle=':')    # dot line
 
     [<matplotlib.lines.Line2D at 0x7ff038cc0a30>]
 
-![Python-Matplotlib01-Basics-11](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img11.png)
+![Python-Matplotlib01-Basics-11](./assets/Python-Matplotlib01-Basics-img11.png)
 
 
 
@@ -361,10 +361,10 @@ plt.plot(x, x+3, ':r')   # dotted red
 
     [<matplotlib.lines.Line2D at 0x7ff0581f4280>]
 
-![Python-Matplotlib01-Basics-12](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img12.png)
+![Python-Matplotlib01-Basics-12](./assets/Python-Matplotlib01-Basics-img12.png)
 
 
- 
+
 
 
 ## 2.6. Adjust Graph Positioning
@@ -382,7 +382,7 @@ plt.ylim(-1.5, 1.5)
 
     (-1.5, 1.5)
 
-![Python-Matplotlib01-Basics-13](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img13.png)
+![Python-Matplotlib01-Basics-13](./assets/Python-Matplotlib01-Basics-img13.png)
 
 
 
@@ -397,7 +397,7 @@ plt.axis([-1, 11, -1.5, 1.5])  # plt.axis([x-Start, x-End, y-Start, y-End])
 
     (-1.0, 11.0, -1.5, 1.5)
 
-![Python-Matplotlib01-Basics-14](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img14.png)
+![Python-Matplotlib01-Basics-14](./assets/Python-Matplotlib01-Basics-img14.png)
 
 
 
@@ -418,7 +418,7 @@ plt.axis('tight')
 
     (0.0, 10.0, -0.9993845576124357, 0.9996923408861117)
 
-![Python-Matplotlib01-Basics-15](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img15.png)
+![Python-Matplotlib01-Basics-15](./assets/Python-Matplotlib01-Basics-img15.png)
 
 
 
@@ -433,7 +433,7 @@ plt.axis('equal')
 
     (0.0, 10.0, -1.0, 1.0)
 
-![Python-Matplotlib01-Basics-16](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img16.png)
+![Python-Matplotlib01-Basics-16](./assets/Python-Matplotlib01-Basics-img16.png)
 
 
 
@@ -455,7 +455,7 @@ plt.ylabel('sin(x)')  # Y-axis label
 
     Text(0, 0.5, 'sin(x)')
 
-![Python-Matplotlib01-Basics-17](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img17.png)
+![Python-Matplotlib01-Basics-17](./assets/Python-Matplotlib01-Basics-img17.png)
 
 
 
@@ -470,7 +470,7 @@ plt.axis('equal')
 
     (0.0, 10.0, -1.0, 1.0)
 
-![Python-Matplotlib01-Basics-18](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img18.png)
+![Python-Matplotlib01-Basics-18](./assets/Python-Matplotlib01-Basics-img18.png)
 
 
 ​    
@@ -494,7 +494,7 @@ plt.ylabel('Y-axis') # Add label of y-axis
 
     Text(0, 0.5, 'Y-axis')
 
-![Python-Matplotlib01-Basics-19](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img19.png)
+![Python-Matplotlib01-Basics-19](./assets/Python-Matplotlib01-Basics-img19.png)
 
 
 
@@ -521,7 +521,7 @@ plt.plot(x, y, 'o', color='black')   # plt.plot(x-axis, y-axis, marker)
 
     [<matplotlib.lines.Line2D at 0x7ff0389b81c0>]
 
-![Python-Matplotlib01-Basics-20](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img20.png)
+![Python-Matplotlib01-Basics-20](./assets/Python-Matplotlib01-Basics-img20.png)
 
 
 
@@ -535,7 +535,7 @@ for marker in ['o', 'p', ',', 'b', 'd', 'x', '+', 'v', '^', '<', '>', '1', '2', 
   plt.xlim(0, 1.8) # Increase a range of x-axis
 ```
 
-​    ![Python-Matplotlib01-Basics-21](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img21.png)
+​    ![Python-Matplotlib01-Basics-21](./assets/Python-Matplotlib01-Basics-img21.png)
 
 
 
@@ -551,7 +551,7 @@ plt.plot(x, y, '--o', color='b')
 
     [<matplotlib.lines.Line2D at 0x7ff0388407f0>]
 
-![Python-Matplotlib01-Basics-22](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img22.png)
+![Python-Matplotlib01-Basics-22](./assets/Python-Matplotlib01-Basics-img22.png)
 
 
 
@@ -572,7 +572,7 @@ plt.plot(x, y, '-o',
 
     [<matplotlib.lines.Line2D at 0x7ff038772b20>]
 
-![Python-Matplotlib01-Basics-23](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img23.png)
+![Python-Matplotlib01-Basics-23](./assets/Python-Matplotlib01-Basics-img23.png)
 
 
 
@@ -631,7 +631,7 @@ plt.scatter(x, y)
 
     <matplotlib.collections.PathCollection at 0x7ff0386e33a0>
 
-![Python-Matplotlib01-Basics-24](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img24.png)
+![Python-Matplotlib01-Basics-24](./assets/Python-Matplotlib01-Basics-img24.png)
 
 
 
@@ -648,7 +648,7 @@ plt.scatter(x, y, c=color, alpha=0.3, cmap='viridis') # cmap: color map
 
     <matplotlib.collections.PathCollection at 0x7ff0386702e0>
 
-![Python-Matplotlib01-Basics-25](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img25.png)
+![Python-Matplotlib01-Basics-25](./assets/Python-Matplotlib01-Basics-img25.png)
 
 
 
@@ -663,7 +663,7 @@ plt.scatter(x, y, c=color, alpha=0.3, s=sizes)
 
     <matplotlib.collections.PathCollection at 0x7ff0385def70>
 
-![Python-Matplotlib01-Basics-26](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img26.png)
+![Python-Matplotlib01-Basics-26](./assets/Python-Matplotlib01-Basics-img26.png)
 
 
 
@@ -692,7 +692,7 @@ plt.scatter(features[2], features[3])
 
     <matplotlib.collections.PathCollection at 0x7ff02cc47430>
 
-![Python-Matplotlib01-Basics-27](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img27.png)
+![Python-Matplotlib01-Basics-27](./assets/Python-Matplotlib01-Basics-img27.png)
 
 
 
@@ -707,10 +707,10 @@ plt.scatter(features[2], features[3], c=iris.target, alpha=0.4, cmap='viridis')
 
     <matplotlib.collections.PathCollection at 0x7ff02cb869d0>
 
-![Python-Matplotlib01-Basics-28](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img28.png)
+![Python-Matplotlib01-Basics-28](./assets/Python-Matplotlib01-Basics-img28.png)
 
 
- 
+
 
 ```python
 # Set a size of plots
@@ -722,7 +722,7 @@ plt.scatter(features[2], features[3], c=iris.target, alpha=0.3, cmap='viridis', 
 
     <matplotlib.collections.PathCollection at 0x7ff02cb0dc10>
 
-![Python-Matplotlib01-Basics-29](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img29.png)
+![Python-Matplotlib01-Basics-29](./assets/Python-Matplotlib01-Basics-img29.png)
 
 
 
@@ -746,7 +746,7 @@ iris.feature_names[3]
 
     'petal width (cm)'
 
-![Python-Matplotlib01-Basics-30](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img30.png)
+![Python-Matplotlib01-Basics-30](./assets/Python-Matplotlib01-Basics-img30.png)
 
 
 
@@ -789,10 +789,10 @@ plt.scatter(x, y)
 
     <matplotlib.collections.PathCollection at 0x7ff02c9b5ee0>
 
-![Python-Matplotlib01-Basics-31](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img31.png)
+![Python-Matplotlib01-Basics-31](./assets/Python-Matplotlib01-Basics-img31.png)
 
 
- 
+
 
 ```python
 # The scatter plot above is too constant -> Randomize y-axis
@@ -807,7 +807,7 @@ plt.scatter(x, y)
 
     <matplotlib.collections.PathCollection at 0x7ff02c934a30>
 
-![Python-Matplotlib01-Basics-32](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img32.png)
+![Python-Matplotlib01-Basics-32](./assets/Python-Matplotlib01-Basics-img32.png)
 
 
 
@@ -821,7 +821,7 @@ plt.errorbar(x, y)
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-33](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img33.png)
+![Python-Matplotlib01-Basics-33](./assets/Python-Matplotlib01-Basics-img33.png)
 
 
 
@@ -835,7 +835,7 @@ plt.errorbar(x, y, fmt='.k')  # fmt = format,   '.k': dot+black
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-34](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img34.png)
+![Python-Matplotlib01-Basics-34](./assets/Python-Matplotlib01-Basics-img34.png)
 
 
 
@@ -851,7 +851,7 @@ plt.errorbar(x, y, yerr=dy, fmt='.k')  # err=dy -> Mark the erros on y-axis -> y
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-35](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img35.png)
+![Python-Matplotlib01-Basics-35](./assets/Python-Matplotlib01-Basics-img35.png)
 
 
 
@@ -865,7 +865,7 @@ plt.errorbar(x, y, yerr=dy, fmt='o', color='k')
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-36](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img36.png)
+![Python-Matplotlib01-Basics-36](./assets/Python-Matplotlib01-Basics-img36.png)
 
 
 
@@ -879,7 +879,7 @@ plt.errorbar(x, y, yerr=dy, fmt='o', color='black', ecolor='lightgrey')  # ecolo
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-37](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img37.png)
+![Python-Matplotlib01-Basics-37](./assets/Python-Matplotlib01-Basics-img37.png)
 
 
 
@@ -894,7 +894,7 @@ plt.errorbar(x, y, yerr=dy, fmt='o', color='k', ecolor='lightgrey', elinewidth=3
 
     <ErrorbarContainer object of 3 artists>
 
-![Python-Matplotlib01-Basics-38](../assets/images/Python-Matplotlib01-Basics/Python-Matplotlib01-Basics-img38.png)
+![Python-Matplotlib01-Basics-38](./assets/Python-Matplotlib01-Basics-img38.png)
 
 
 
