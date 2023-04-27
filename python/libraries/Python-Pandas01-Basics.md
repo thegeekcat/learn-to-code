@@ -6518,7 +6518,7 @@ births.pivot_table('births',
 
 ​    
 
-​    ![Python-Pandas01-Basics-01](./Python-Pandas01-Basics-01.png)
+​    ![Python-Pandas01-Basics-01](./assets/Python-Pandas01-Basics-01.png)
 
 
 
@@ -6538,5 +6538,5 @@ births.pivot_table('births',
 
 
 
- ![Python-Pandas01-Basics-02](./Python-Pandas01-Basics-02.png)
+ ![Python-Pandas01-Basics-02](./assets/Python-Pandas01-Basics-02.png)
 
