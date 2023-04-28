@@ -2406,11 +2406,10 @@ plt.scatter(data[:,0],  # x = the first column -> '[:]' the whole rows, '0': the
 
     <matplotlib.collections.PathCollection at 0x7f8c6e2c8be0>
 
+![MachineLearning01-Pre-Processing1](./assets/MachineLearning01-Pre-Processing-img1.png)
 
 
 
-![png](MachineLearning01-Pre-Processing1.png)
-    
 
 
 ### SMOTE
@@ -2464,11 +2463,9 @@ plt.scatter(smoted_data[:,0],   # X-axis
 
     <matplotlib.collections.PathCollection at 0x7f8c6ea82520>
 
+![MachineLearning01-Pre-Processing2](./assets/MachineLearning01-Pre-Processing-img2.png)
 
 
-
-![png](MachineLearning01-Pre-Processing2.png)
-    
 
 
 # Dimensionality Reduction (=Curse of Dimensionality)
@@ -2593,9 +2590,7 @@ print('Label: {}'.format(label[0]))
     Label: 0
 
 
-
-
-![png](MachineLearning01-Pre-Processing3.png)
+![MachineLearning01-Pre-Processing3](./assets/MachineLearning01-Pre-Processing-img3.png)
     
 
 
@@ -2667,11 +2662,8 @@ plt.scatter(new_data[:,0],
     <matplotlib.collections.PathCollection at 0x7f8c6ba839d0>
 
 
-
-
-​    
-![png](MachineLearning01-Pre-Processing4.png)
-​    
+![MachineLearning01-Pre-Processing4](./assets/MachineLearning01-Pre-Processing-img4.png)
+    
 
 
 # Categorical Variable to Numeric Variable 
