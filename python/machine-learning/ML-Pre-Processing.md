@@ -18,7 +18,7 @@ import warnings   # Ignore unneccessary warning messages
 warnings.filterwarnings('ignore')
 ```
 
-먼저 머신러닝의 대표적인 데이터 셋 중 하나인 전복 데이터를 불러오겠습니다. 전복 데이터셋은 수컷, 암컷, 유아기 3개의 범주로 이루어진 범주형 변수와 길이, 직경, 높이, 무게 등 여러 수치형 변수로 이루어져 있습니다. 데이터를 불러온 후 입력으로 사용할 변수들과 레이블로 사용할 성별 변수로 나누겠습니다.
+
 
 ## Load data
 
@@ -2406,7 +2406,7 @@ plt.scatter(data[:,0],  # x = the first column -> '[:]' the whole rows, '0': the
 
     <matplotlib.collections.PathCollection at 0x7f8c6e2c8be0>
 
-![MachineLearning01-Pre-Processing1](./assets/MachineLearning01-Pre-Processing-img1.png)
+![MachineLearning01-Pre-Processing1](./assets/ML-Pre-Processing-img01.png)
 
 
 
@@ -2463,7 +2463,7 @@ plt.scatter(smoted_data[:,0],   # X-axis
 
     <matplotlib.collections.PathCollection at 0x7f8c6ea82520>
 
-![MachineLearning01-Pre-Processing2](./assets/MachineLearning01-Pre-Processing-img2.png)
+![MachineLearning01-Pre-Processing2](./assets/ML-Pre-Processing-img02.png)
 
 
 
@@ -2590,7 +2590,7 @@ print('Label: {}'.format(label[0]))
     Label: 0
 
 
-![MachineLearning01-Pre-Processing3](./assets/MachineLearning01-Pre-Processing-img3.png)
+![MachineLearning01-Pre-Processing3](./assets/ML-Pre-Processing-img03.png)
     
 
 
@@ -2662,7 +2662,7 @@ plt.scatter(new_data[:,0],
     <matplotlib.collections.PathCollection at 0x7f8c6ba839d0>
 
 
-![MachineLearning01-Pre-Processing4](./assets/MachineLearning01-Pre-Processing-img4.png)
+![MachineLearning01-Pre-Processing4](./assets/ML-Pre-Processing-img04.png)
     
 
 
