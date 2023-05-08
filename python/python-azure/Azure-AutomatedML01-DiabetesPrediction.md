@@ -23,7 +23,7 @@ print('Workspace Same: ' + ws.name,
         '\nResource Group: ' + ws.resource_group)
 ```
 
-    Workspace Same: labmeow94ml 
+    Workspace Same: meow94ml 
     Azure Region: australiaeast 
     Subscription ID: 27db5ec6-d206-4028-b5e1-6004dca5eeef 
     Resource Group: rg94
@@ -719,10 +719,6 @@ from sklearn.externals import joblib            # Save trained models as *.pkl
 import math
 ```
 
-    /anaconda/envs/azureml_py38/lib/python3.8/site-packages/sklearn/externals/joblib/__init__.py:15: FutureWarning: sklearn.externals.joblib is deprecated in 0.21 and will be removed in 0.23. Please import this functionality directly from joblib, which can be installed with: pip install joblib. If this warning is raised when loading pickled models, you may need to re-serialize those models with scikit-learn 0.21+.
-      warnings.warn(msg, category=FutureWarning)
-    
-
 
 ```python
 # Find the best parameter
@@ -801,7 +797,7 @@ experiment
 
 
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>labmeow94ml</td><td><a href="https://ml.azure.com/experiments/id/1d421e1a-1f45-4122-b3e4-546840a29ee5?wsid=/subscriptions/27db5ec6-d206-4028-b5e1-6004dca5eeef/resourcegroups/rg94/workspaces/labmeow94ml&amp;tid=5fb256f0-fbf2-40d2-81d5-bac1b32c419d" target="_blank" rel="noopener">Link to Azure Machine Learning studio</a></td><td><a href="https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.experiment.Experiment?view=azure-ml-py" target="_blank" rel="noopener">Link to Documentation</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>meow94ml</td><td><a href="https://ml.azure.com/experiments/id/2c2cfcc8-f2a7-4504-a55d-307e3ed72d0e?wsid=/subscriptions/27db5ec6-d206-4028-b5e1-6004dca5eeef/resourcegroups/rg94/workspaces/meow94ml&amp;tid=5fb256f0-fbf2-40d2-81d5-bac1b32c419d" target="_blank" rel="noopener">Link to Azure Machine Learning studio</a></td><td><a href="https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.experiment.Experiment?view=azure-ml-py" target="_blank" rel="noopener">Link to Documentation</a></td></tr></table>
 
 
 
@@ -818,21 +814,6 @@ minimum_rmse_runid = None
 
 
 ```python
-# Compare models
-for exp in experiment.get_runs():   # Get results of experiments
-    run_metrics = exp.get_metrics();
-    run_details = exp.get_details();
-
-    run_rmse = run_metrics['rmse']
-    run_id = run_details['runId']
-```
-
-
-```python
-# Find and Download the Best Model
-minimum_rmse = None
-minimum_rmse_runid = None
-
 for exp in experiment.get_runs():
 
 
@@ -849,8 +830,8 @@ print('Best run_id:  ' + minimum_rmse_runid)
 print('Best run_id rmse:  ' + str(minimum_rmse))
 ```
 
-    Best run_id:  bb1985de-73d7-46bc-b4bf-0d2bc0fb7a57
-    Best run_id rmse:  56.64087521475942
+    Best run_id:  aaceedc3-e7fe-4c2a-a441-7d626209a4d5
+    Best run_id rmse:  56.605203313391435
     
 
 ## 4.2. Download the Best Model
@@ -870,5 +851,185 @@ print(best_run.get_file_names())
 best_run.download_file(name=str(best_run.get_file_names()[0]))
 ```
 
-    ['model_alpha_0.7.pkl', 'outputs/.amlignore', 'outputs/.amlignore.amltmp', 'outputs/Model_alpha_0.1.pkl', 'outputs/Model_alpha_0.2.pkl', 'outputs/Model_alpha_0.3.pkl', 'outputs/Model_alpha_0.4.pkl', 'outputs/Model_alpha_0.5.pkl', 'outputs/Model_alpha_0.6.pkl', 'outputs/Model_alpha_0.7.pkl', 'outputs/Model_alpha_0.8.pkl', 'outputs/Model_alpha_0.9.pkl', 'outputs/Model_alpha_1.0.pkl']
+    ['model_alpha_0.1.pkl', 'outputs/model_alpha_0.1.pkl']
     
+
+# 5. Datastore
+
+## 5.1. Upload Files to Datastore
+
+
+```python
+# Import module
+import numpy as np
+from azureml.core import Dataset
+```
+
+
+```python
+# Set file names to save
+np.savetxt('features.csv', X_train, delimiter=',')
+np.savetxt('labels.csv', y_train,delimiter=',')
+
+datastore = ws.get_default_datastore()
+
+datastore.upload_files(files=['./features.csv','./labels.csv'],
+                        target_path='diabets-experiment/',
+                        overwrite=True
+                       )
+```
+
+    Uploading an estimated of 2 files
+    Uploading ./features.csv
+    Uploaded ./features.csv, 1 files out of an estimated total of 2
+    Uploading ./labels.csv
+    Uploaded ./labels.csv, 2 files out of an estimated total of 2
+    Uploaded 2 files
+    
+
+
+
+
+    $AZUREML_DATAREFERENCE_9e57bf72763b48eaa04d712a26ab049b
+
+
+
+## 5.2. Get Files from Datastore
+
+
+```python
+# Define files from Datastore
+feature_dataset = Dataset.Tabular.from_delimited_files(path=[(datastore, 'diabetes-experiment/features.csv')])
+label_dataset = Dataset.Tabular.from_delimited_files(path=[(datastore, 'diabetes-experiment/labels.csv')])
+```
+
+# 6. Register a Model
+
+
+```python
+# Import module
+import sklearn 
+from azureml.core import Model 
+from azureml.core.resource_configuration import ResourceConfiguration
+```
+
+
+```python
+# Register a model
+model = Model.register(workspace=ws,
+
+                        # Define information
+                        model_name = 'diabetes-experiment-model',   # Set a model name
+                        model_path = f'./{str(best_run.get_file_names()[0])}',    # format:  ./  {string (filenames)}
+                        model_framework = Model.Framework.SCIKITLEARN,  # Define a Model Framework
+                        model_framework_version = sklearn.__version__,  # Get a version
+                        
+                        # Define sample datasets
+                        sample_input_dataset = feature_dataset,
+                        sample_output_dataset = label_dataset,
+
+                        # Set a resource configuration
+                        resource_configuration = ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+
+                        # Describe the model
+                        description = 'Ridge regression model to predict disbetes progression',
+
+                        # Add tags
+                        tags = {'area': 'diabetes', 'type': 'regression'}
+                        )
+```
+
+    Registering model diabetes-experiment-model
+    
+
+
+```python
+# Check the model
+
+print('Model name: ', model.name)
+```
+
+    Model name:  diabetes-experiment-model
+    
+
+# 7. Deploy a Model
+
+
+```python
+# Set a service name
+service_name = 'diabete-service'
+
+# Define a service
+service = Model.deploy(ws,  # Workspace
+                        service_name,
+                        [model],        # Set a type as List [] as more than one models can be deployed at a time
+                        overwrite=True)
+
+# Show a progress of deployment
+service.wait_for_deployment(show_output=True)
+```
+
+    /tmp/ipykernel_6436/2350755840.py:5: FutureWarning: azureml.core.model:
+    To leverage new model deployment capabilities, AzureML recommends using CLI/SDK v2 to deploy models as online endpoint, 
+    please refer to respective documentations 
+    https://docs.microsoft.com/azure/machine-learning/how-to-deploy-managed-online-endpoints /
+    https://docs.microsoft.com/azure/machine-learning/how-to-attach-kubernetes-anywhere 
+    For more information on migration, see https://aka.ms/acimoemigration 
+    To disable CLI/SDK v1 deprecation warning set AZUREML_LOG_DEPRECATION_WARNING_ENABLED to 'False'
+      service = Model.deploy(ws,  # Workspace
+    
+
+    Tips: You can try get_logs(): https://aka.ms/debugimage#dockerlog or local deployment: https://aka.ms/debugimage#debug-locally to debug if deployment takes longer than 10 minutes.
+    Running
+    2023-05-08 02:13:01+00:00 Creating Container Registry if not exists..
+    2023-05-08 02:23:02+00:00 Registering the environment.
+    2023-05-08 02:23:04+00:00 Uploading autogenerated assets for no-code-deployment..
+    2023-05-08 02:23:06+00:00 Building image..
+    2023-05-08 02:33:20+00:00 Generating deployment configuration.
+    2023-05-08 02:33:21+00:00 Submitting deployment to compute..
+    2023-05-08 02:33:29+00:00 Checking the status of deployment diabete-service..
+    2023-05-08 02:34:51+00:00 Checking the status of inference endpoint diabete-service.
+    Succeeded
+    ACI service creation operation finished, operation "Succeeded"
+    
+
+# 7. Test the Deployed Model
+
+
+```python
+# Import module
+import json
+
+
+input_payload = json.dumps({
+    'data': X_train[0:3].values.tolist(),
+    'method': 'predict'
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
+    {'predict': [204.94506937062147, 74.4641225933554, 103.10034506626545]}
+    
+
+
+```python
+http://ccbf7556-5b2c-41b3-8488-e05bfb20ee2c.australiaeast.azurecontainer.io/score
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
