@@ -51,7 +51,9 @@ plt.title('Linear Function Example')
 
 ![DL-Basics01-Math-img01](./assets/DL-Basics01-Math-img01.png)
 
-​    
+
+
+    
 
 
 ## 2.2. Quadratic Function (y = ax^2 + bx + c)
@@ -95,9 +97,10 @@ plt.title('Quadratic Function Example')
 
     Text(0.5, 1.0, 'Quadratic Function Example')
 
-
 ![DL-Basics01-Math-img02](./assets/DL-Basics01-Math-img02.png)
-    
+
+
+​    
 
 
 ## 2.3. Cubic Function (y = ax^3 + bx^2 + cx + d)
@@ -148,6 +151,7 @@ plt.title('Cubic Function Example')
     Text(0.5, 1.0, 'Cubic Function Example')
 
 ![DL-Basics01-Math-img03](./assets/DL-Basics01-Math-img03.png)
+
 
 
 
@@ -402,8 +406,10 @@ plt.grid()
 # - Only (1,1) is outside of the line -> the value is '1'
 ```
 
-
 ![DL-Basics01-Math-img04](./assets/DL-Basics01-Math-img04.png)
+
+
+
 
 
 ### 4.1.2. OR Gate
@@ -502,9 +508,10 @@ plt.grid()
 # - Only (1,1) is outside of the line -> the value is '1'
 ```
 
+![DL-Basics01-Math-img05](assets/DL-Basics01-Math-img05.png)
 
-![DL-Basics01-Math-img05](./assets/DL-Basics01-Math-img05.png)
-    
+
+
 
 
 ### 4.1.4. XOR Gate
@@ -534,4 +541,216 @@ print(XOR(1, 1))
     1
     1
     0
+
+
+# 5. Activation Function
+
+- Activation Function
+  - General Steps
+    1. ELU
+    2. LeakyReLU
+    3. ReLU
+    4. tanh
+    5. Sigmoid
+ - Steps from Stanford Univ.
+    1. ReLU
+    2. ReLU Family(LeakyReLU, ELU)
+
+## 5.1. Step Function
+
+- Step Function
+  - y = 0 (x < 0)
+  - y = 1 (x >= 0)
+
+
+```python
+# Define a Step Function
+def step_function(x):
+  if x > 0:
+    return 1
+  else:
+    return 0
+```
+
+
+```python
+# Test
+print(step_function(0))
+print(step_function(-1))
+print(step_function(1))
+```
+
+    0
+    0
+    1
+
+
+
+```python
+# Define a Step Function for Numpy
+def step_function_for_numpy(x):
+  y = x > 0                 # Result of y: Boolean
+  return y.astype(np.int)   # Change the Boolean to (0, 1)
+```
+
+
+```python
+# Test
+a = np.array([5, 3, -4, 2, 0])
+print(step_function_for_numpy(a))
+```
+
+    [1 1 0 1 0]
+
+
+    <ipython-input-33-75a3c42e8791>:4: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+    Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+      return y.astype(np.int)
+
+
+## 5.2. Sigmoid Function
+
+- Sigmoid Function
+  - Use for Binary classification  e.g. Identify cats or dogs
+  - Output: 0~1
+  - Only used in the last output layer in a neural network
+  - y = 1 / (1 + e^-x)
+
+
+```python
+# Defind a Sigmoid Function
+
+def sigmoid(x):
+  return 1 / (1 + np.exp(-x))   # np.exp(): Transfer 'e' to 'e^x) => np.exp(-x) = e^-x
+```
+
+
+```python
+# Test
+print(sigmoid(3))
+print(sigmoid(10))
+print(sigmoid(100))
+print(sigmoid(-10))
+```
+
+    0.9525741268224334
+    0.9999546021312976
+    1.0
+    4.5397868702434395e-05
+
+
+
+```python
+# Visualization: Step Function vs Sigmoid Function
+x = np.arange(-5, 5, 0.01)
+
+y1 = sigmoid(x)
+y2 = step_function_for_numpy(x)
+
+plt.plot(x, y1, 'r-', x, y2, 'b--')
+plt.legend(['Sigmoid Function', 'Step Function'])
+
+plt.grid()
+```
+
+    <ipython-input-33-75a3c42e8791>:4: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+    Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+      return y.astype(np.int)
+
+![DL-Basics01-Math-img06](./assets/DL-Basics01-Math-img06.png)
+
+
+
+
+
+## 5.3. ReLU (Rectified Linear Unit)
+
+- ReLU: Only get postive numbers
+  - y = 0 (x <= 0)
+  - y = x (x > 0)
+
+
+```python
+# Define a ReLU
+def ReLU(x):
+  if x > 0:
+    return x
+  else:
+    return 0
+```
+
+
+```python
+# Test
+print(ReLU(5))
+print(ReLU(-5))
+```
+
+    5
+    0
+
+
+
+```python
+# Visualization
+x = np.linspace(-10, 10, 1000)
+y = np.maximum(0, x)
+
+plt.figure(figsize=(10, 5))
+plt.plot(x, y)
+plt.legend(['ReLU'])
+plt.show()
+```
+
+ ![DL-Basics01-Math-img07](./assets/DL-Basics01-Math-img07.png)
+
+
+
+
+
+## 5.4. Identity Function
+
+- Identity Function
+ - Use in Regression Analysis
+ - y = x
+ - Use for the middle layer in a neural network
+
+
+```python
+# Define an Identity Function
+def identity_function(x):
+  return x
+```
+
+## 5.5. Softmax Function
+
+- Softmax
+ - Use for Multi Class Classification
+ - Significantly affected by input -> Large input, large output
+ - Output value can correspond to probability
+ - The sum of the output values is 1
+ - y = exp(xi) / Sum(exp(xy)
+
+
+```python
+# Define a Softmax Function
+def softmax(x):
+  exp_x = np.exp(x)
+  sum_exp_x = np.sum(exp_x)
+  y = exp_x / sum_exp_x
+
+  return y
+
+```
+
+
+```python
+# Test
+x = np.array([0.3, 0.2, 3.0, -1, 2])
+print(softmax(x))        # Result: Sum of numbers are '1'
+print(np.sum(softmax(x)))
+```
+
+    [0.0443832  0.04015958 0.66041009 0.01209583 0.2429513 ]
+    1.0
 
