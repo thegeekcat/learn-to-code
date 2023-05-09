@@ -33,7 +33,7 @@ imdb.load_data(num_words=10000)   # Bring the first 10,000 words in order of fre
 
     Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz
     17464789/17464789 [==============================] - 0s 0us/step
-    
+
 
 
 
@@ -78,7 +78,7 @@ print('Test Labels: ', test_labels.shape)
     Train Labels:  (25000,)
     Test Data:  (25000,)
     Test Labels:  (25000,)
-    
+
 
 
 ```python
@@ -122,7 +122,7 @@ print('The Number of Dataset in Training dataset: ', i)
 ```
 
     The Number of Dataset in Training dataset:  25000
-    
+
 
 
 ```python
@@ -183,7 +183,7 @@ for i, item in enumerate(a):
     1 2
     2 3
     3 4
-    
+
 
 ## 3.2. Get Train Data
 
@@ -198,7 +198,7 @@ x_train = vectorize_sequences(train_data)
 ```
 
     (25000, 10000)
-    
+
 
 
 ```python
@@ -229,7 +229,7 @@ x_test = vectorize_sequences(train_labels)
 ```
 
     (25000, 10000)
-    
+
 
 
 ```python
@@ -375,7 +375,7 @@ history = model.fit(partial_x_train,
     30/30 [==============================] - 2s 54ms/step - loss: 0.0159 - accuracy: 0.9979 - val_loss: 0.5507 - val_accuracy: 0.8708
     Epoch 20/20
     30/30 [==============================] - 1s 42ms/step - loss: 0.0144 - accuracy: 0.9975 - val_loss: 0.5609 - val_accuracy: 0.8699
-    
+
 
 
 ```python
@@ -388,7 +388,7 @@ print('\n', history_dict.items())
     dict_keys(['loss', 'accuracy', 'val_loss', 'val_accuracy'])
     
      dict_items([('loss', [0.54498690366745, 0.3418734073638916, 0.2570478916168213, 0.2044125348329544, 0.1697668731212616, 0.14492782950401306, 0.12251386046409607, 0.10763061046600342, 0.0899081602692604, 0.07603313028812408, 0.06596952676773071, 0.05480169132351875, 0.04980279132723808, 0.03780589625239372, 0.031584255397319794, 0.026779640465974808, 0.023048995062708855, 0.018693016842007637, 0.01592365838587284, 0.014397983439266682]), ('accuracy', [0.775600016117096, 0.8913333415985107, 0.9156000018119812, 0.9297333359718323, 0.9434000253677368, 0.9523333311080933, 0.9614666700363159, 0.9676666855812073, 0.9733999967575073, 0.9789333343505859, 0.9828000068664551, 0.9868666529655457, 0.9878000020980835, 0.9925333261489868, 0.9945999979972839, 0.9956666827201843, 0.996999979019165, 0.9973333477973938, 0.9979333281517029, 0.9975333213806152]), ('val_loss', [0.4174790382385254, 0.32648733258247375, 0.29030126333236694, 0.28984665870666504, 0.284036785364151, 0.28550034761428833, 0.29335761070251465, 0.3038879334926605, 0.3202303946018219, 0.37354716658592224, 0.3893824517726898, 0.382832795381546, 0.3998195230960846, 0.41815826296806335, 0.45072391629219055, 0.46476152539253235, 0.49663519859313965, 0.5188717246055603, 0.5506603121757507, 0.5608623027801514]), ('val_accuracy', [0.8626999855041504, 0.8791999816894531, 0.8866999745368958, 0.8838000297546387, 0.8845000267028809, 0.8851000070571899, 0.8855999708175659, 0.8837000131607056, 0.8837000131607056, 0.8745999932289124, 0.8747000098228455, 0.8755000233650208, 0.8763999938964844, 0.8762000203132629, 0.8712000250816345, 0.8758999705314636, 0.8737000226974487, 0.8741000294685364, 0.8708000183105469, 0.8698999881744385])])
-    
+
 
 # 7. Visualization
 
@@ -435,11 +435,8 @@ plt.grid()
 ```
 
 
+![DL-Keras-Excercise02-IMDB-Dataset-img01](./assets/DL-Keras-Excercise02-IMDB-Dataset-img01.png)
     
-![png](output_35_0.png)
-    
-
-
 
 ```python
 # Visualization for Accuracy
@@ -462,16 +459,14 @@ plt.grid()
 ```
 
 
-    
-![png](output_36_0.png)
-    
+![DL-Keras-Excercise02-IMDB-Dataset-img02](./assets/DL-Keras-Excercise02-IMDB-Dataset-img02.png)
 
 
 # 8 Prediction
 
 * Note: Before doing prediction, reset the model with a value of the best epoch  
  => The best epoch of this model: Thrid epoch  
- => When fitting models, original epoch is '20' but it's changed to '3' as 3 is the best epoch
+  => When fitting models, original epoch is '20' but it's changed to '3' as 3 is the best epoch
 
 
 
@@ -483,7 +478,7 @@ model.predict(x_test)
 ```
 
     782/782 [==============================] - 3s 3ms/step
-    
+
 
 
 
@@ -509,4 +504,4 @@ print('loss={0}, accuracy={1}'.format(test_loss, test_acc))
 
     782/782 [==============================] - 2s 2ms/step - loss: 0.7101 - accuracy: 0.5000
     loss=0.7100858092308044, accuracy=0.5
-    
+
