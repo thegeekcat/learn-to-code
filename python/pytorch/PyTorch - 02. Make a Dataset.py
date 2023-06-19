@@ -35,7 +35,7 @@ class CustomImageDataset(Dataset):
     def __getitem__(self, index):
         # Set image path
         image_path = self.image_paths[index]
-        print('Image path: ', image_path)
+        #print('Image path: ', image_path)
 
         # Load image
         image = Image.open(image_path)  # e.g. ./data/0619train/dew/2208.jpg
@@ -50,7 +50,7 @@ class CustomImageDataset(Dataset):
 
         # Set a label
         label = self.label_dict[folder_name]
-        print(label)
+        #print(label)
 
         # Transform image
         if self.transform:
@@ -72,4 +72,5 @@ dataset = CustomImageDataset(image_paths, transform = None)
 for image, label in dataset:
     print('Data and Labels: ', image, label)
     #pass
-
+# for i in dataset:
+#     print(i)
