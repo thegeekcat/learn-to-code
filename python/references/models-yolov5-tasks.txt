@@ -1,0 +1,65 @@
+# Tasks to use YOLO5
+
+1. Move train dataset in the YOLO folder:  './dataset_0724_chocolate'
+2. Create a YAML file:  './data/0724-chocolate.yaml'
+3. Edit the YAML file
+# Set folder paths
+train: './dataset_0728_chocolate/Train/images'
+val: './dataset_0728_chocolate/Validation/images'
+
+# Set labels
+names:
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+
+4. Edit Hyperparameters from './data/hyps/xxx.yaml'
+ - 'hyp.scratch-low.yaml': Model size N or S
+ - 'hyp.scratch-med.yaml': Model size M
+ - 'hyp.scratch-high.yaml': Model size L or X
+
+5. Edit Parsers from './data/train.py'
+ - 'parser.add_argument('--weights', type=str, default=ROOT / 'yolov5s.pt', help='initial weights path')'
+   : Set selections of Pre-trained models: 'yolov5s.pt', 'yolov5n.pt', 'yolov5m.pt' etc.
+ - 'parser.add_argument('--cfg', type=str, default='./models/yolo5s.yaml', help='model.yaml path')'
+   : Set Pre-trained models   e.g. YOLOv5n6 Model: './models/hub/yolov5n6.yaml'
+ - 'parser.add_argument('--data', type=str, default=ROOT / 'data/0724-chocolate.yaml', help='dataset.yaml path')'
+   : Set a folder for YAML files
+ - 'parser.add_argument('--hyp', type=str, default=ROOT / 'data/hyps/hyp.scratch-low.yaml', help='hyperparameters path')'
+   : Set a path for Hyperparameter files
+ - 'parser.add_argument('--epochs', type=int, default=100, help='total training epochs')'
+   : Set number of epochs
+ - 'parser.add_argument('--batch-size', type=int, default=24, help='total batch size for all GPUs, -1 for autobatch')'
+   : Set a batch size
+ - 'parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=1280, help='train, val image size (pixels)')'
+   : Set an image size -> 1280 as the default value of 'yolov5n6' is 1280
+ - 'parser.add_argument('--rect', action='store_true', help='rectangular training')'
+   : Change input shape as a rectangle
+   * Usage: $ python train.py --rect
+ - 'parser.add_argument('--resume', nargs='?', const=True, default=False, help='resume most recent training')'
+   : Run the Resume function
+ - 'parser.add_argument('--multi-scale', action='store_true', help='vary img-size +/- 50%%')'
+   : Set a random rescale of images between +50% and -50%
+     e.g. Image size of 640 --> 320(-50%) - 960(+50%)
+ - 'parser.add_argument('--optimizer', type=str, choices=['SGD', 'Adam', 'AdamW'], default='SGD', help='optimizer')'
+   : Set optimizers
+ - 'parser.add_argument('--workers', type=int, default=8, help='max dataloader workers (per RANK in DDP mode)')'
+   : Set number of workers
+ - 'parser.add_argument('--label-smoothing', type=float, default=0.0, help='Label smoothing epsilon')'
+   : Set options for label smoothing
+ - 'parser.add_argument('--seed', type=int, default=85, help='Global training seed')'
+   : Set a seed value
+
+6. Install libraries
+ - Delete few options from './requirements.txt'
+   1) #torch>=1.7.0  # see https://pytorch.org/get-started/locally (recommended)
+   2) #torchvision>=0.8.1
+ - Run the file
+   : $ pip install -r requirements.txt
+
+
+
+* Notes
+ - Delete 'labels.cache' file under the dataset folder when re-run the code
+ - Set the root path of yolo as the root
