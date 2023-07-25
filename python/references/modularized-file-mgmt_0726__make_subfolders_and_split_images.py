@@ -24,6 +24,18 @@ class FileManagement:
         os.makedirs(self.path_folder_train, exist_ok=True)
         os.makedirs(self.path_folder_validation, exist_ok=True)
 
+        """
+        - Structure:
+            root_original_dataset
+                {folder_names}  
+                
+            root_split_dataset
+                train
+                    {folder_names}
+                validation
+                    {folder_names}
+        """
+
 
     # Define a function to get labels by folder name
     def get_labels_from_folder_names(self):
