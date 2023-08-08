@@ -113,7 +113,7 @@ data
 # custom
 *.pkl
 *.pkl.json
-*.log.json
+#*.log.json
 docs/modelzoo_statistics.md
 mmdet/.mim
 #work_dirs/
